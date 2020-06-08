@@ -1,0 +1,12 @@
+#container {
+    border-style: solid;
+    border-color: black;
+    display: flex;
+}
+
+#box {
+    flex-grow: 16;
+    text-align: center;
+    border-style: solid;
+    border-color: black;
+}
