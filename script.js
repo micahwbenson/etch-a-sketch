@@ -1,14 +1,20 @@
 function genGrid(v) {
     let container = document.getElementById('container');
-    for (let i = 0; i < v; i++) {
-        let row = document.createElement('div');
-        console.log('Made one row!');
-        for (let x = 1; x <= v ; x++) {
-            let colbox = document.createElement('div');
-            colbox.id = 'box';
-            colbox.innerText = (i * v) + x;
-            row.appendChild(colbox);
-        };
-        container.appendChild(row);
+    container.innerHTML = '';
+
+    container.style.gridTemplateRows = 'repeat('+v+', 1fr)';
+    container.style.gridTemplateColumns = 'repeat('+v+', 1fr)';
+
+    for (let rows = 0; rows < v; rows++) {
+            for (let cols = 0; cols < v; cols++) {
+                let box = document.createElement('div');
+                box.id = 'box';
+                container.appendChild(box);
+            }
     };
 };
+
+function resetGrid() {
+    let x = Number(prompt('How many rows and columns should the grid have?'));
+    genGrid(x);
+}
